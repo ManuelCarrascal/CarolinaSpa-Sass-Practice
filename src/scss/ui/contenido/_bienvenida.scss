@@ -1,0 +1,26 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.bienvenida {
+  text-align: center;
+  &__heading {
+    @include m.headingCursiva;
+  }
+
+  &__texto {
+    color: v.$gris;
+    font-size: 2.5rem;
+    line-height: 1.8;
+    margin: 4rem auto 0 auto;
+    max-width: 95%;
+
+    @include m.tablet {
+      max-width: 50%;
+    }
+
+    @include m.desktop {
+      font-size: 2.6rem;
+      max-width: 50%;
+    }
+  }
+}

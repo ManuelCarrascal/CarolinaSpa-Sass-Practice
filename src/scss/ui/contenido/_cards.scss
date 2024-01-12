@@ -1,0 +1,56 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.cards {
+  &__grid {
+    @include m.desktop {
+      @include m.grid(3, 2rem);
+    }
+  }
+}
+
+.card {
+  margin: 0 auto 2rem auto;
+  max-width: 35rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @include m.desktop {
+    margin: 0;
+    max-width: unset;
+  }
+
+  &__imagen {
+    border: 0.5rem solid v.$blanco;
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+
+    &:hover {
+      transform: rotate(3deg) scale(1.1);
+
+      @include m.desktop {
+        transform: rotate(4deg) scale(1.2);
+      }
+    }
+  }
+
+  &__contenido {
+    background-color: v.$blanco;
+    margin: 0 auto;
+    max-width: 90%;
+    transform: translateY(-5rem);
+  }
+
+  &__heading {
+    @include m.headingCursiva;
+    font-size: 3.4rem;
+    padding: 2rem;
+  }
+
+  &__enlace {
+    @include m.boton(v.$secundario, v.$blanco);
+    display: block;
+  }
+}
